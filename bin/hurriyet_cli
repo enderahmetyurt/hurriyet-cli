@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby -wU
+
+require 'hurriyet_cli'
+
+HurriyetCli::HammerOfTheGods.start(ARGV)
