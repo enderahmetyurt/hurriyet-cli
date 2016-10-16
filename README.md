@@ -23,7 +23,7 @@ Or install it yourself as:
 Export your API_KEY that you get from https://developers.hurriyet.com.tr/
 
 ```bash
-$ bundle exec bin/hurriyet-cli articles # Fetch all articles
+$ bundle exec bin/hurriyet_cli articles # Fetch all articles
 ```
 
 ## License
