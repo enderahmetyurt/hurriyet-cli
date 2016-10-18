@@ -1,6 +1,7 @@
 require "hurriyet_cli/version"
 require "hurriyet_cli/cli"
 require "hurriyet_cli/articles"
+require "hurriyet_cli/columns"
 require "hurriyet"
 require "rainbow"
 require "pry"
