@@ -21,6 +21,12 @@ module HurriyetCli
       puts "Fetching all pages"
       HurriyetCli::Pages.fetch
     end
+
+    desc "writers", "Get all writers"
+    def writers
+      puts "Fetching all writers"
+      HurriyetCli::Writers.fetch
+    end
   end
 end
 
