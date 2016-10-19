@@ -25,6 +25,8 @@ Export your API_KEY that you get from https://developers.hurriyet.com.tr/
 ```bash
 $ bundle exec bin/hurriyet_cli articles # Fetch all articles
 $ bundle exec bin/hurriyet_cli columns  # Fetch all columns
+$ bundle exec bin/hurriyet_cli pages    # Fetch all pages
+$ bundle exec bin/hurriyet_cli writers  # Fetch all writers
 ```
 
 ## License
