@@ -5,9 +5,15 @@ require "thor/runner"
 module HurriyetCli
   class HammerOfTheGods < Thor
     desc "articles", "Fetch all articles"
+    method_option :top, alias: :t, desc: "Fetch N articles"
     def articles
-      puts "Fetching all articles"
-      HurriyetCli::Articles.fetch
+      if options[:top]
+        puts "Fetching #{options[:top]} articles"
+        HurriyetCli::Articles.top_articles(options[:top])
+      else
+        puts "Fetching all articles"
+        HurriyetCli::Articles.fetch
+      end
     end
 
     desc "columns", "Fetch all columns"
