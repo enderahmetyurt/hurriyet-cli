@@ -28,10 +28,16 @@ module HurriyetCli
       end
     end
 
-    desc "pages", "Get all pages"
+    desc "pages", "Fetch all pages"
+    method_option :top, alias: :t, desc: "Fetch N pages"
     def pages
-      puts "Fetching all pages"
-      HurriyetCli::Pages.fetch
+      if options[:top]
+        puts "Fetching #{options[:top]} pages"
+        HurriyetCli::Pages.top_pages(options[:top])
+      else
+        puts "Fetching all pages"
+        HurriyetCli::Pages.fetch
+      end
     end
 
     desc "writers", "Get all writers"
