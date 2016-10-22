@@ -40,10 +40,16 @@ module HurriyetCli
       end
     end
 
-    desc "writers", "Get all writers"
+    desc "writers", "Fetch all writers"
+    method_option :top, alias: :t, desc: "Fetch N writers"
     def writers
-      puts "Fetching all writers"
-      HurriyetCli::Writers.fetch
+      if options[:top]
+        puts "Fetching #{options[:top]} writers"
+        HurriyetCli::Writers.top_writers(options[:top])
+      else
+        puts "Fetching all writers"
+        HurriyetCli::Writers.fetch
+      end
     end
   end
 end
