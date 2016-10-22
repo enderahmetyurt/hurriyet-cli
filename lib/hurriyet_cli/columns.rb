@@ -6,6 +6,12 @@ module HurriyetCli
       formated_parse(columns)
     end
 
+    def self.top_columns(top)
+      client = Hurriyet::Client.new(ENV["API_KEY"])
+      columns = client.columns.all top: top
+      formated_parse(columns)
+    end
+
     private
     def self.formated_parse(columns)
       columns.each do |a|

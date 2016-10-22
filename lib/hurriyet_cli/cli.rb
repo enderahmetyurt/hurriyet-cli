@@ -17,9 +17,15 @@ module HurriyetCli
     end
 
     desc "columns", "Fetch all columns"
+    method_option :top, alias: :t, desc: "Fetch N columns"
     def columns
-      puts "Fetching all columns"
-      HurriyetCli::Columns.fetch
+      if options[:top]
+        puts "Fetching #{options[:top]} columns"
+        HurriyetCli::Columns.top_columns(options[:top])
+      else
+        puts "Fetching all columns"
+        HurriyetCli::Columns.fetch
+      end
     end
 
     desc "pages", "Get all pages"
