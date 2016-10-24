@@ -5,26 +5,34 @@ require "thor/runner"
 module HurriyetCli
   class HammerOfTheGods < Thor
     desc "articles", "Fetch all articles"
-    method_option :top, alias: :t, desc: "Fetch N articles"
+    method_option :top, desc: "Fetch N articles"
+    # method_options [:source, :key]
     def articles
+      client = Hurriyet::Client.new(ENV['API_KEY'])
+      articles = HurriyetCli::Articles.new(client)
       if options[:top]
         puts "Fetching #{options[:top]} articles"
-        HurriyetCli::Articles.top_articles(options[:top])
+        articles.top_articles(options[:top])
+      elsif options[:source]
+        # puts "Fetching #{options[:source]} by #{options[:key]} articles"
+        # HurriyetCli::Articles.filter_by(options[:source], options[:key])
       else
         puts "Fetching all articles"
-        HurriyetCli::Articles.fetch
+        articles.fetch
       end
     end
 
     desc "columns", "Fetch all columns"
     method_option :top, alias: :t, desc: "Fetch N columns"
     def columns
+      client = Hurriyet::Client.new(ENV['API_KEY'])
+      columns = HurriyetCli::Columns.new(client)
       if options[:top]
         puts "Fetching #{options[:top]} columns"
-        HurriyetCli::Columns.top_columns(options[:top])
+        columns.top_columns(options[:top])
       else
         puts "Fetching all columns"
-        HurriyetCli::Columns.fetch
+        columns.fetch
       end
     end
 
