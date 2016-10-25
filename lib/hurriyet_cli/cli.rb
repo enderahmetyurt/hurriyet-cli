@@ -49,12 +49,14 @@ module HurriyetCli
     desc "writers", "Fetch all writers"
     method_option :top, alias: :t, desc: "Fetch N writers"
     def writers
+      client = Hurriyet::Client.new(ENV['API_KEY'])
+      writers = HurriyetCli::Writers.new(client)
       if options[:top]
         puts "Fetching #{options[:top]} writers"
-        HurriyetCli::Writers.top_writers(options[:top])
+        writers.top_writers(options[:top])
       else
         puts "Fetching all writers"
-        HurriyetCli::Writers.fetch
+        writers.fetch
       end
     end
   end
