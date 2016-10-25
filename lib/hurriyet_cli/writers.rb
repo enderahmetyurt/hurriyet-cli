@@ -1,21 +1,24 @@
 module HurriyetCli
   class Writers
-    def self.fetch
-      client = Hurriyet::Client.new(ENV["API_KEY"])
-      writers = client.writers.all
+    def initialize(client, display = STDOUT)
+      @client = client
+      @display = display
+    end
+
+    def fetch
+      writers = @client.writers.all
       formated_parse(writers)
     end
 
-    def self.top_writers(top)
-      client = Hurriyet::Client.new(ENV["API_KEY"])
-      writers = client.writers.all top: top
+    def top_writers(top)
+      writers = @client.writers.all top: top
       formated_parse(writers)
     end
 
     private
-    def self.formated_parse(writers)
+    def formated_parse(writers)
       writers.each do |a|
-        puts "#{Rainbow(a["Fullname"]).red} - #{Rainbow(a["Url"]).cyan}"
+        @display.puts "#{Rainbow(a["Fullname"]).red} - #{Rainbow(a["Url"]).cyan}"
       end
     end
   end

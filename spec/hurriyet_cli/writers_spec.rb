@@ -3,6 +3,7 @@ require 'spec_helper'
 describe HurriyetCli::Writers do
   describe "#formated_writeres" do
     it "fetch all writers in a format" do
+      formated_writer = "\e[31mAdnan KAYA\e[0m - \e[36mhttp://sosyal.hurriyet.com.tr/yazar/adnan-kaya_427\e[0m"
       mock_writers = [{"Id"=> "55ea09f8f018fbaf44942523",
                        "Fullname"=> "Adnan KAYA",
                        "ContentType"=> "PersonContainer",
@@ -17,8 +18,12 @@ describe HurriyetCli::Writers do
                        ],
                        "Path"=> "/yazarlar/",
                        "Url"=> "http://sosyal.hurriyet.com.tr/yazar/adnan-kaya_427"}]
-      formated_writers = HurriyetCli::Writers.send(:formated_parse, mock_writers)
-      expect(formated_writers) == Array
+      client = double('client')
+      display = double('display')
+      writers = HurriyetCli::Writers.new(client, display)
+      expect(client).to receive_message_chain('writers.all') {mock_writers}
+      expect(display).to receive(:puts).with(formated_writer)
+      writers.fetch
     end
   end
 end
