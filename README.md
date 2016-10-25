@@ -1,6 +1,6 @@
 # HurriyetCli
 
-A Ruby CLI for Hurriyet Public API.
+A Ruby CLI for [Hurriyet Public API]( http://developers.hurriyet.com.tr/).
 
 ## Installation
 
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Export your API_KEY that you get from https://developers.hurriyet.com.tr/
+Export your ```API_KEY``` that you get from [https://developers.hurriyet.com.tr](https://developers.hurriyet.com.tr)
 
 ```bash
 $ bundle exec bin/hurriyet_cli articles # Fetch all articles
@@ -28,8 +28,8 @@ $ bundle exec bin/hurriyet_cli articles --top 5  # Fetch top 5 articles
 ```
 
 ## Thanks
-(Yiğit Özkavcı)[https://github.com/yigitozkavci/] for Ruby Hurriyet API Wrapper.
-(Hamdi Akoğuz)[https://github.com/Hamdiakoguz] for his advices.
+* [Yiğit Özkavcı](https://github.com/yigitozkavci/) for Ruby Hurriyet API Wrapper.
+* [Hamdi Akoğuz](https://github.com/Hamdiakoguz) for his advices.
 
 ## License
 
