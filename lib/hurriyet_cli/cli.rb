@@ -6,16 +6,12 @@ module HurriyetCli
   class HammerOfTheGods < Thor
     desc "articles", "Fetch all articles"
     method_option :top, desc: "Fetch N articles"
-    # method_options [:source, :key]
     def articles
       client = Hurriyet::Client.new(ENV['API_KEY'])
       articles = HurriyetCli::Articles.new(client)
       if options[:top]
         puts "Fetching #{options[:top]} articles"
         articles.top_articles(options[:top])
-      elsif options[:source]
-        # puts "Fetching #{options[:source]} by #{options[:key]} articles"
-        # HurriyetCli::Articles.filter_by(options[:source], options[:key])
       else
         puts "Fetching all articles"
         articles.fetch
@@ -39,12 +35,14 @@ module HurriyetCli
     desc "pages", "Fetch all pages"
     method_option :top, alias: :t, desc: "Fetch N pages"
     def pages
+      client = Hurriyet::Client.new(ENV['API_KEY'])
+      pages = HurriyetCli::Pages.new(client)
       if options[:top]
         puts "Fetching #{options[:top]} pages"
-        HurriyetCli::Pages.top_pages(options[:top])
+        pages.top_pages(options[:top])
       else
         puts "Fetching all pages"
-        HurriyetCli::Pages.fetch
+        pages.fetch
       end
     end
 

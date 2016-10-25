@@ -15,11 +15,6 @@ module HurriyetCli
       formated_parse(articles)
     end
 
-    # def filter_by(source, key)
-    #   articles = @client.articles.all filter: "'#{source} eq \'#{key}\''"
-    #   formated_parse(articles)
-    # end
-
     private
     def formated_parse(articles)
       articles.each do |a|
