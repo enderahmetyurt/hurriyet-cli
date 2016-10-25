@@ -4,6 +4,10 @@ require "thor/runner"
 
 module HurriyetCli
   class HammerOfTheGods < Thor
+    unless ENV['API_KEY']
+      raise 'Please add your API_KEY'
+    end
+
     desc "articles", "Fetch all articles"
     method_option :top, desc: "Fetch N articles"
     def articles
