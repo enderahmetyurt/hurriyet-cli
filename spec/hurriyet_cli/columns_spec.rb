@@ -3,7 +3,7 @@ require 'spec_helper'
 describe HurriyetCli::Columns do
   describe "#formated_columns" do
     it "fetch all columns in a format" do
-      formated_column = "18/10/16|14:29 - \e[31mHido'ya şartlı evet\e[0m - \e[38;5;214mÜnal Özüak\e[0m - \e[36mhttp://sosyal.hurriyet.com.tr/yazar/unal-ozuak_418/hidoya-sartli-evet_40252323\e[0m"
+      formated_column = "1 - \e[31mHido'ya şartlı evet\e[0m - \e[38;5;214mÜnal Özüak\e[0m - \e[34m18/10/16 | 14:29\e[0m \n \e[38;5;102mHani'HAYIR'desem ne olacak o da ayrı!..\e[0m \n \e[36mhttp://sosyal.hurriyet.com.tr/yazar/unal-ozuak_418/hidoya-sartli-evet_40252323\e[0m \n"
       mock_columns = [{"Id"=>"40252323",
                       "Fullname"=>"Ünal Özüak",
                       "ContentType"=>"Column",
@@ -18,7 +18,7 @@ describe HurriyetCli::Columns do
       display = double('display')
       columns = HurriyetCli::Columns.new(client, display)
       expect(client).to receive_message_chain('columns.all') {mock_columns}
-      expect(display).to receive(:puts).with(formated_column)
+      expect(display).to receive(:print).with(formated_column)
       columns.fetch
     end
   end

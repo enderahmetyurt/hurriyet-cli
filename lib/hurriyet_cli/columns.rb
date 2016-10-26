@@ -19,10 +19,7 @@ module HurriyetCli
     def formated_parse(columns)
       columns.each.with_index(1) do |a, i|
         created_at = Time.parse(a["CreatedDate"]).strftime("%d/%m/%y | %H:%M")
-        @display.puts "#{i} - #{Rainbow(a["Title"]).red} - #{Rainbow(a["Fullname"]).orange} - #{Rainbow(created_at).color(:blue)}"
-        @display.puts Rainbow(a["Description"]).color(:dimgray)
-        @display.puts Rainbow(a["Url"]).cyan
-        @display.puts ""
+        @display.print "#{i} - #{Rainbow(a["Title"]).red} - #{Rainbow(a["Fullname"]).orange} - #{Rainbow(created_at).color(:blue)} \n #{Rainbow(a["Description"]).color(:dimgray)} \n #{Rainbow(a["Url"]).cyan} \n"
       end
     end
   end
