@@ -20,10 +20,10 @@ Or install it yourself as:
 
 ## Usage
 
-Export your ```API_KEY``` that you get from [https://developers.hurriyet.com.tr](https://developers.hurriyet.com.tr)
+Export your ```HURRIYET_API_KEY``` that you get from [https://developers.hurriyet.com.tr](https://developers.hurriyet.com.tr)
 
 ```bash
-$ export API_KEY=<YOUR_API_KEY>
+$ export HURRIYET_API_KEY=<YOUR_HURRIYET_API_KEY>
 ```
 
 ```bash
