@@ -3,7 +3,7 @@ require 'spec_helper'
 describe HurriyetCli::Articles do
   describe "#formated_articles" do
     it "fetch all articles in a format" do
-      formated_article = "1 - \e[31mMHP Toprakkale İlçe Başkanı Gür, vefat etti\e[0m - \e[33m13/10/16 | 13:46\e[0m \n \e[38;5;102m MHP Toprakkale İlçe Başkanı Gür, vefat etti\e[0m \n \e[36mhttp://www.hurriyet.com.tr/mhp-toprakkale-ilce-baskani-gur-vefat-etti-40247928\e[0m \n"
+      formated_article = "1 - \e[31mMHP Toprakkale İlçe Başkanı Gür, vefat etti\e[0m - \e[33m13/10/16 | 16:46 +03\e[0m \n \e[38;5;102m MHP Toprakkale İlçe Başkanı Gür, vefat etti\e[0m \n \e[36mhttp://www.hurriyet.com.tr/mhp-toprakkale-ilce-baskani-gur-vefat-etti-40247928\e[0m \n"
       mock_articles = [{"Id"=>"40247928",
                         "ContentType"=>"Article",
                         "CreatedDate"=>"2016-10-13T13:46:16Z",
