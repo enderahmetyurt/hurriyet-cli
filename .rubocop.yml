@@ -1,0 +1,13 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'pkg/*'
+    - 'spec/*/*'
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 110
+Metrics/AbcSize:
+  Enabled: false

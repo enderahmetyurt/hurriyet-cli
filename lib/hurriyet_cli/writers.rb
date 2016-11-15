@@ -16,9 +16,10 @@ module HurriyetCli
     end
 
     private
+
     def formated_parse(writers)
       writers.each do |a|
-        @display.puts "#{Rainbow(a["Fullname"]).red} - #{Rainbow(a["Url"]).cyan}"
+        @display.puts "#{Rainbow(a['Fullname']).red} - #{Rainbow(a['Url']).cyan}"
       end
     end
   end
