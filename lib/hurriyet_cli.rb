@@ -7,6 +7,7 @@ require 'hurriyet_cli/writers'
 require 'hurriyet'
 require 'rainbow'
 require 'pry'
+require "active_support/all"
 
 module HurriyetCli
 end

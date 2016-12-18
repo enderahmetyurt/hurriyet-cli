@@ -19,7 +19,8 @@ module HurriyetCli
 
     def formated_parse(articles)
       articles.each.with_index(1) do |a, i|
-        created_at = Time.parse(a['CreatedDate']).localtime.strftime('%d/%m/%y | %H:%M %Z')
+        Time.zone = "Istanbul"
+        created_at = Time.zone.parse(a['CreatedDate']).strftime('%d/%m/%y | %H:%M %Z')
         @display.print "#{i} - #{Rainbow(a['Title']).red} - #{Rainbow(created_at).color(:yellow)} \n "\
                        "#{Rainbow(a['Description']).color(:dimgray)} \n #{Rainbow(a['Url']).cyan} \n"
       end
