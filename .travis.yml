@@ -1,8 +1,6 @@
 language: ruby
 rvm:
   - 2.3.0
-before_script:
-  - export TZ=Europe/Istanbul
 script:
   - bundle exec rubocop
   - HURRIYET_API_KEY=123 bundle exec rspec
