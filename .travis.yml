@@ -2,7 +2,7 @@ language: ruby
 rvm:
   - 2.3.0
 before_script:
-  - sudo dpkg-reconfigure --frontend noninteractive tzdata
+  - export TZ=Europe/Istanbul
 script:
   - bundle exec rubocop
   - HURRIYET_API_KEY=123 bundle exec rspec
