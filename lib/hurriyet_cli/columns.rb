@@ -19,7 +19,7 @@ module HurriyetCli
 
     def formated_parse(columns)
       columns.each.with_index(1) do |a, i|
-        Time.zone = "Istanbul"
+        Time.zone = 'Istanbul'
         created_at = Time.zone.parse(a['CreatedDate']).strftime('%d/%m/%y | %H:%M %Z')
         @display.print "#{i} - #{Rainbow(a['Title']).red} - #{Rainbow(a['Fullname']).orange} " \
         "- #{Rainbow(created_at).color(:blue)} \n #{Rainbow(a['Description']).color(:dimgray)}" \

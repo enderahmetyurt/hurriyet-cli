@@ -13,7 +13,7 @@ describe HurriyetCli::Pages do
       display = double('display')
       pages = HurriyetCli::Pages.new(client, display)
       expect(client).to receive_message_chain('pages.all') {mock_pages}
-      expect(display).to receive(:puts).with(formated_page)
+      expect(display).to receive(:print).with(formated_page)
       pages.fetch
     end
   end

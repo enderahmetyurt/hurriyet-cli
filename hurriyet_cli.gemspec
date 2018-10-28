@@ -26,6 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'thor'
   spec.add_dependency 'hurriyet'
   spec.add_dependency 'rainbow'
-  spec.add_dependency 'rubocop', '~> 0.45.0'
+  spec.add_dependency 'rubocop', '~> 0.49.0'
   spec.add_dependency 'activesupport'
 end
